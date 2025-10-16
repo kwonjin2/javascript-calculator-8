@@ -7,6 +7,12 @@ class App {
     );
     Console.print(`입력한 결과: ${input}`);
   }
-}
 
+  checkCustomDelimiter(input) {
+    if (input.startsWith('//')) {
+      const customDelimiter = input.slice(2, input.indexOf('\\n'));
+      return customDelimiter;
+    }
+  }
+}
 export default App;
