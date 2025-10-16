@@ -6,7 +6,9 @@ class App {
       '덧셈할 문자열을 입력해 주세요. \n'
     );
     Console.print(`입력한 결과: ${input}`);
-    Console.print(this.mapToNumbers(this.deleteDelimiter(input)));
+    Console.print(
+      this.sumNumbers(this.mapToNumbers(this.deleteDelimiter(input)))
+    );
   }
 
   checkCustomDelimiter(input) {
@@ -31,6 +33,10 @@ class App {
 
   mapToNumbers(stringArray) {
     return stringArray.map((str) => Number(str));
+  }
+
+  sumNumbers(numberArray) {
+    return numberArray.reduce((acc, cur) => acc + cur, 0);
   }
 }
 export default App;
