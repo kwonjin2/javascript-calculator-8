@@ -5,7 +5,14 @@ class App {
     const input = await Console.readLineAsync(
       '덧셈할 문자열을 입력해 주세요. \n'
     );
-    Console.print(`결과 : ${this.mapToNumbers(this.deleteDelimiter(input))}`);
+    const result = this.calculateSumFromString(input);
+    Console.print(`결과 : ${result}`);
+  }
+
+  calculateSumFromString(input) {
+    const parts = this.deleteDelimiter(input);
+    const numbers = this.mapToNumbers(parts);
+    return this.sumNumbers(numbers);
   }
 
   checkCustomDelimiter(input) {
