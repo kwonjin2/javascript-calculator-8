@@ -34,6 +34,14 @@ class App {
     }
   }
 
+  // 정규표현식에서 특별한 의미를 가지는 특수문자 $, ^, *, (, ), +, [, |,
+  // 정규표현식에서 가능한 특수문자 !, @, #, %, &, -, _, =, ], {, }, :, ;, ', ", <, >, /
+  // 기타 처리가 필요한 특수문자 \, ?
+
+  escapeRegExp(string) {
+    return string.replace(/[$^*()+[\]|\\?]/g, '\\$&');
+  }
+
   deleteDelimiter(value) {
     let delimiter = /,|:/;
     let parts = value;
