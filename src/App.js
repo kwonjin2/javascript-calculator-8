@@ -26,6 +26,9 @@ class App {
   checkCustomDelimiter(input) {
     if (input.startsWith('//')) {
       const customDelimiter = input.slice(2, input.indexOf('\\n'));
+
+      if (!customDelimiter) throw new Error(App.ERROR_MESSAGES.EMPTY_STRING);
+
       return customDelimiter;
     }
   }
