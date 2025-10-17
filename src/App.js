@@ -28,7 +28,8 @@ class App {
       const customDelimiter = input.slice(2, input.indexOf('\\n'));
 
       if (!customDelimiter) throw new Error(App.ERROR_MESSAGES.EMPTY_STRING);
-
+      if (!isNaN(+customDelimiter))
+        throw new Error(App.ERROR_MESSAGES.NUMBER_DELIMITER);
       return customDelimiter;
     }
   }
