@@ -24,7 +24,10 @@ class App {
       throw new Error(App.ERROR_MESSAGES.NEGATIVE_NUMBER);
 
     const numbers = this.mapToNumbers(parts);
-    console.log(numbers);
+
+    if (numbers.some((num) => isNaN(num)))
+      throw new Error(App.ERROR_MESSAGES.INVALID_INPUT);
+
     return this.sumNumbers(numbers);
   }
 
