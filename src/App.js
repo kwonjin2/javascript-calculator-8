@@ -19,7 +19,12 @@ class App {
 
   calculateSumFromString(input) {
     const parts = this.deleteDelimiter(input);
+
+    if (parts.some((str) => +str < 0))
+      throw new Error(App.ERROR_MESSAGES.NEGATIVE_NUMBER);
+
     const numbers = this.mapToNumbers(parts);
+    console.log(numbers);
     return this.sumNumbers(numbers);
   }
 
@@ -33,10 +38,6 @@ class App {
       return customDelimiter;
     }
   }
-
-  // 정규표현식에서 특별한 의미를 가지는 특수문자 $, ^, *, (, ), +, [, |,
-  // 정규표현식에서 가능한 특수문자 !, @, #, %, &, -, _, =, ], {, }, :, ;, ', ", <, >, /
-  // 기타 처리가 필요한 특수문자 \, ?
 
   escapeRegExp(string) {
     return string.replace(/[$^*()+[\]|\\?]/g, '\\$&');
@@ -64,4 +65,5 @@ class App {
     return numberArray.reduce((acc, cur) => acc + cur, 0);
   }
 }
+
 export default App;
