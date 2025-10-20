@@ -20,6 +20,9 @@ class App {
   calculateSumFromString(input) {
     const parts = this.deleteDelimiter(input);
 
+    if (parts.every((str) => str === ''))
+      throw new Error(App.ERROR_MESSAGES.INVALID_INPUT);
+
     if (parts.some((str) => +str < 0))
       throw new Error(App.ERROR_MESSAGES.NEGATIVE_NUMBER);
 
