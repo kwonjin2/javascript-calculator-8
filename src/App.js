@@ -33,7 +33,7 @@ class App {
     const customDelimiter = this.checkCustomDelimiter(value);
     if (customDelimiter) {
       const escapeDelimiter = this.escapeRegExp(customDelimiter);
-      delimiter = new RegExp(escapeDelimiter);
+      delimiter = new RegExp(`${escapeDelimiter}|,|:`);
       parts = value.split('\\n')[1];
     }
 
