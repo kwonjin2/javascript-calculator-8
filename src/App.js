@@ -18,6 +18,8 @@ class App {
   }
 
   calculateSumFromString(input) {
+    if (input === '') return 0;
+
     const parts = this.deleteDelimiter(input);
 
     if (parts.every((str) => str === ''))
