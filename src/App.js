@@ -9,12 +9,15 @@ class App {
     INVALID_INPUT: '[ERROR] 입력이 올바르지 않습니다.',
   };
 
+  static MESSAGES = {
+    INPUT: '덧셈할 문자열을 입력해 주세요. \n',
+    OUTPUT: '결과 :',
+  };
+
   async run() {
-    const input = await Console.readLineAsync(
-      '덧셈할 문자열을 입력해 주세요. \n'
-    );
+    const input = await Console.readLineAsync(App.MESSAGES.INPUT);
     const result = this.calculateSumFromString(input);
-    Console.print(`결과 : ${result}`);
+    Console.print(`${App.MESSAGES.OUTPUT} ${result}`);
   }
 
   calculateSumFromString(input) {
